@@ -11,7 +11,13 @@ This script is designed to automate the setup of Docker and related components o
 ## Instructions
 
 1. Clone the repository or copy the script to your local machine.
-2. Open a terminal or command prompt and navigate to the directory where the script is located.
+```bash
+git clone https://github.com/CooLaToS/scripts.git
+```
+2. Navigate to the directory where the script is located.
+```bash
+cd scripts
+```
 3. Run the script using the following command:
 
 ```bash
