@@ -12,7 +12,7 @@ This script is designed to automate the setup of Docker and related components o
 
 1. Clone the repository or copy the script to your local machine.
 ```bash
-git clone https://github.com/CooLaToS/scripts.git
+git clone -b Dockers --single-branch https://github.com/CooLaToS/scripts.git
 ```
 2. Navigate to the directory where the script is located.
 ```bash
