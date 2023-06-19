@@ -1,47 +1,43 @@
-# Docker Setup Script
+# Autoconnect VPN Service
 
-This script is designed to automate the setup of Docker and related components on your machine. It allows you to install Docker, Docker Compose, and optionally set up Portainer or Portainer Agent.
+This repository contains scripts to create a systemd service that automatically connects to a VPN using OpenVPN.
 
 ## Prerequisites
 
+- OpenVPN installed on the system
 - Python 3
-- `curl` command-line tool
-- `sudo` access
 
-## Instructions
+## Installation
 
-1. Clone the repository or copy the script to your local machine.
-```bash
-git clone https://github.com/CooLaToS/scripts.git
-```
-2. Navigate to the directory where the script is located.
-```bash
-cd scripts
-```
-3. Run the script using the following command:
+1. Clone this repository:
 
-```bash
-python3 setup_docker.py
-```
+   ```bash
+   git clone -b VPN --single-branch https://github.com/CooLaToS/scripts.git
+   ```
 
-4. Follow the prompts to install Docker, Docker Compose, and choose whether to install Portainer or Portainer Agent.
-5. After the script completes, you will have Docker and the selected components set up on your machine.
+2. Change to the repository directory:
+   
+   ```bash
+   cd scripts
+   ```
 
-## Script Details
+3. Run the following command to create the systemd service: ( Please note that You will be prompted to provide the path or filename of the .ovpn file. Make sure to provide the correct file for your VPN configuration.)
 
-The script performs the following tasks:
+    ```bash 
+    sudo python3 create_service_unit.py
+    ```
 
-1. Retrieves the IP address of the current machine.
-2. Checks if Docker is already installed and installs it if necessary.
-3. Adds the current user to the Docker group.
-4. Installs the latest version of Docker Compose if it is not already up to date.
-5. Offers the option to install either Portainer or Portainer Agent.
-- Portainer: Sets up Portainer as a Docker service and provides a web-based interface for managing Docker containers and resources.
-- Portainer Agent: Installs the Portainer Agent, allowing the machine to be managed by a Portainer instance.
-6. Offers the option to remove the `get-docker.sh` installation script and clean up old Docker images and containers.
+## Configuration
 
-Please note that this script assumes a Linux environment. It may need modifications to work on other operating systems.
+The `.ovpn` file contains the configuration details for your VPN connection. Make sure to provide the correct file path or filename when prompted.
 
-**Disclaimer:** This script makes changes to your system configuration. Use it at your own risk. It is recommended to review the script and understand the actions it performs before executing it.
+## Troubleshooting
 
-If you encounter any issues or have any questions, feel free to reach out for assistance.
+- If the `.ovpn` file is not found or specified incorrectly, you will be prompted to re-enter the path or filename.
+- If the VPN connection fails to start, check the OpenVPN logs for more information.
+
+## License
+
+This project is licensed under the MIT License.
+
+    
