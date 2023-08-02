@@ -15,8 +15,8 @@ def is_jq_installed():
         return False
 
 def install_jq():
-    subprocess.run(["apt-get", "update"], check=True)
-    subprocess.run(["apt-get", "install", "-y", "jq"], check=True)
+    subprocess.run(["apt", "update"], check=True)
+    subprocess.run(["apt", "install", "-y", "jq"], check=True)
 
 def update_docker_config():
     # Read the original data first
