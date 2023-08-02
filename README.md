@@ -1,47 +1,86 @@
-# Docker Setup Script
+# Docker Scripts
+
+This repository hosts various scripts to simplify and automate different tasks. One of the highlighted scripts is the Docker setup script.
+
+## Docker Setup Script
 
 This script is designed to automate the setup of Docker and related components on your machine. It allows you to install Docker, Docker Compose, and optionally set up Portainer or Portainer Agent.
 
-## Prerequisites
+### Prerequisites
 
 - Python 3
-- `curl` command-line tool
-- `sudo` access
+- curl command-line tool
+- sudo access
 
-## Instructions
+### Instructions
 
-1. Clone the repository or copy the script to your local machine.
-```bash
+1. **Clone the repository**:
+    
+```zsh
 git clone https://github.com/CooLaToS/scripts.git
 ```
-2. Navigate to the directory where the script is located.
-```bash
+    
+2. **Navigate to the directory** where the script is located:
+    
+```zsh
 cd scripts
 ```
-3. Run the script using the following command:
-
-```bash
+    
+3. **Execute the Docker Setup Script**:
+       
+```zsh
 python3 setup_docker.py
 ```
-
+    
 4. Follow the prompts to install Docker, Docker Compose, and choose whether to install Portainer or Portainer Agent.
+    
 5. After the script completes, you will have Docker and the selected components set up on your machine.
+    
 
-## Script Details
+### Script Details
 
-The script performs the following tasks:
+The Docker Setup script performs the following tasks:
 
-1. Retrieves the IP address of the current machine.
-2. Checks if Docker is already installed and installs it if necessary.
-3. Adds the current user to the Docker group.
-4. Installs the latest version of Docker Compose if it is not already up to date.
-5. Offers the option to install either Portainer or Portainer Agent.
-- Portainer: Sets up Portainer as a Docker service and provides a web-based interface for managing Docker containers and resources.
-- Portainer Agent: Installs the Portainer Agent, allowing the machine to be managed by a Portainer instance.
-6. Offers the option to remove the `get-docker.sh` installation script and clean up old Docker images and containers.
+- Retrieves the IP address of the current machine.
+- Checks if Docker is already installed and installs it if necessary.
+- Adds the current user to the Docker group.
+- Installs the latest version of Docker Compose if it is not already up to date.
+- Offers the option to install either Portainer or Portainer Agent.
+    - **Portainer**: Sets up Portainer as a Docker service and provides a web-based interface for managing Docker containers and resources.
+    - **Portainer Agent**: Installs the Portainer Agent, allowing the machine to be managed by a Portainer instance.
+- Offers the option to remove the `get-docker.sh` installation script and clean up old Docker images and containers.
 
-Please note that this script assumes a Linux environment. It may need modifications to work on other operating systems.
+### Docker Configuration Script
 
-**Disclaimer:** This script makes changes to your system configuration. Use it at your own risk. It is recommended to review the script and understand the actions it performs before executing it.
+This script, named `fixdockerfw.py`, adjusts Docker configurations on an Ubuntu server, particularly updating the `/etc/docker/daemon.json` to set the `iptables` attribute.
 
-If you encounter any issues or have any questions, feel free to reach out for assistance.
+#### Prerequisites
+
+- Python 3.x
+- Ubuntu or Debian-based Linux distributions.
+- sudo or root permissions
+
+#### Usage
+
+1. Navigate to the scripts directory.
+    
+2. Ensure the script is executable:
+      
+```zsh
+chmod +x fixdockerfw.py
+```
+    
+3. Execute the script:
+       
+```zsh
+sudo ./fixdockerfw.py
+```
+    
+
+This script checks for the `jq` utility, creates a backup of the original Docker configuration, alters the `iptables` configuration, and restarts the Docker service.
+
+---
+
+**Disclaimer**: The scripts in this repository make changes to your system configuration. Use them at your own risk. It is recommended to review the scripts and understand the actions they perform before executing them.
+
+If you encounter any issues or have questions about any script, feel free to reach out for assistance.
