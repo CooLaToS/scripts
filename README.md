@@ -84,3 +84,11 @@ This script checks for the `jq` utility, creates a backup of the original Docker
 **Disclaimer**: The scripts in this repository make changes to your system configuration. Use them at your own risk. It is recommended to review the scripts and understand the actions they perform before executing them.
 
 If you encounter any issues or have questions about any script, feel free to reach out for assistance.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
