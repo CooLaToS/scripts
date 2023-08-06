@@ -1,6 +1,6 @@
 # Docker Scripts
 
-This repository hosts various scripts to simplify and automate different tasks. One of the highlighted scripts is the Docker setup script.
+This repository hosts various scripts to simplify and automate different tasks. Highlighted scripts include the Docker setup script and the Docker configuration script.
 
 ## Docker Setup Script
 
@@ -11,27 +11,30 @@ This script is designed to automate the setup of Docker and related components o
 - Python 3
 - curl command-line tool
 - sudo access
+- pip
+- pip install docker
 
 ### Instructions
 
 1. **Clone the repository**:
-    
+
+
 ```zsh
 git clone https://github.com/CooLaToS/scripts.git
 ```
-    
+
 2. **Navigate to the directory** where the script is located:
-    
+
 ```zsh
 cd scripts
 ```
-    
+
 3. **Execute the Docker Setup Script**:
-       
+
 ```zsh
 python3 setup_docker.py
 ```
-    
+
 4. Follow the prompts to install Docker, Docker Compose, and choose whether to install Portainer or Portainer Agent.
     
 5. After the script completes, you will have Docker and the selected components set up on your machine.
@@ -50,45 +53,39 @@ The Docker Setup script performs the following tasks:
     - **Portainer Agent**: Installs the Portainer Agent, allowing the machine to be managed by a Portainer instance.
 - Offers the option to remove the `get-docker.sh` installation script and clean up old Docker images and containers.
 
-### Docker Configuration Script
+## fixdockerfw.py Script
 
-This script, named `fixdockerfw.py`, adjusts Docker configurations on an Ubuntu server, particularly updating the `/etc/docker/daemon.json` to set the `iptables` attribute.
+This script provides a consolidated solution for Docker network setup and system-level network configurations. It automates several tasks, such as:
 
-#### Prerequisites
+### Features:
 
-- Python 3.x
-- Ubuntu or Debian-based Linux distributions.
-- sudo or root permissions
+- **IP Forwarding** - Enables IP forwarding at the system level.
+- **UFW Configuration** - Modifies UFW's default forward policy and allows rules for the Docker network.
+- **NAT on iptables** - Sets up NAT rules for the Docker network.
+- **Docker Configuration** - Updates Docker's `daemon.json` file to disable `iptables` and restarts the Docker daemon.
+- **Docker Network Creation** - Ensures the existence of a Docker network named `CELLOCKNET`.
 
-#### Usage
+### Requirements:
 
-1. Navigate to the scripts directory.
-    
-2. Ensure the script is executable:
-      
+- This script requires Python 3.
+- The script must be run as root or using sudo.
+- The `docker` Python package is required (install via `pip install docker`).
+
+### Usage:
+
+Navigate to the directory containing the script and run:
+
 ```zsh
-chmod +x fixdockerfw.py
+sudo python3 fixdockerfw.py
 ```
-    
-3. Execute the script:
-       
-```zsh
-sudo ./fixdockerfw.py
-```
-    
-
-This script checks for the `jq` utility, creates a backup of the original Docker configuration, alters the `iptables` configuration, and restarts the Docker service.
 
 ---
-
-**Disclaimer**: The scripts in this repository make changes to your system configuration. Use them at your own risk. It is recommended to review the scripts and understand the actions they perform before executing them.
-
-If you encounter any issues or have questions about any script, feel free to reach out for assistance.
-
 ## License
+
+  
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
 
+  
+
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
-
