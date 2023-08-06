@@ -8,19 +8,6 @@ import docker
 def is_root():
     return os.geteuid() == 0
 
-def check_docker_sdk():
-    try:
-        import docker
-        print("Docker SDK for Python is already installed.")
-    except ImportError:
-        print("Docker SDK for Python is not found. Installing...")
-        try:
-            subprocess.run(['pip3', 'install', 'docker'], check=True)
-            print("Docker SDK for Python has been installed.")
-        except subprocess.CalledProcessError as e:
-            print(f"Error occurred during Docker SDK installation: {e}")
-            sys.exit(1)
-    
 def run_command(command):
     try:
         subprocess.run(command, check=True)
@@ -101,8 +88,6 @@ def main():
     if not is_root():
         print("Please run the script as root or with sudo.")
         return
-    #Check if docker is install via pip install docker
-    check_docker_sdk()
     
     # Handle Docker's Configuration
     update_docker_config()
